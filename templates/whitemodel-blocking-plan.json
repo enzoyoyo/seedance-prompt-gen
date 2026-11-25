@@ -1,0 +1,41 @@
+{
+  "scene_id": "S01",
+  "title": "Interrogation Room Confrontation",
+  "aspect_ratio": "9:16",
+  "room": {
+    "width_m": 6.0,
+    "depth_m": 6.0,
+    "height_m": 3.0
+  },
+  "expected_actor_count": 2,
+  "axis_pair": ["investigator", "lead"],
+  "props": [
+    {"id": "steel_table", "label": "铁桌", "x": 0.0, "z": 0.0, "w": 1.4, "d": 0.8, "h": 0.75},
+    {"id": "door", "label": "门", "x": 0.0, "z": -2.9, "w": 1.0, "d": 0.15, "h": 2.1}
+  ],
+  "actors": [
+    {"id": "investigator", "label": "调查官", "x": 0.0, "z": -0.72, "facing_deg": 180, "pose": "leaning", "height_m": 1.8},
+    {"id": "lead", "label": "老周", "x": 0.0, "z": 0.78, "facing_deg": 0, "pose": "seated", "height_m": 1.74}
+  ],
+  "cameras": [
+    {"id": "CAM_A_twoshot", "label": "A 双人侧面", "x": 2.8, "z": 0.05, "y": 1.45, "look_at_x": 0.0, "look_at_z": 0.05, "look_at_y": 1.0, "fov_deg": 60},
+    {"id": "CAM_B_ots_lead", "label": "B 过肩拍老周", "x": 0.55, "z": -1.6, "y": 1.6, "look_at_x": 0.0, "look_at_z": 0.78, "look_at_y": 1.1, "fov_deg": 40},
+    {"id": "CAM_C_ots_investigator", "label": "C 过肩拍调查官", "x": 0.55, "z": 1.7, "y": 1.35, "look_at_x": 0.0, "look_at_z": -0.72, "look_at_y": 1.4, "fov_deg": 40}
+  ],
+  "options": [
+    {"label": "A", "note": "隔桌对峙：调查官撑桌前倾，老周坐对面"},
+    {
+      "label": "B",
+      "note": "调查官绕到桌侧站着俯视老周，压迫感更强",
+      "actors": [
+        {"id": "investigator", "label": "调查官", "x": 1.1, "z": -0.2, "facing_deg": -110, "pose": "standing", "height_m": 1.8},
+        {"id": "lead", "label": "老周", "x": 0.0, "z": 0.78, "facing_deg": 0, "pose": "seated", "height_m": 1.74}
+      ],
+      "cameras": [
+        {"id": "CAM_A_wide", "label": "A 斜角全景", "x": -2.2, "z": 2.2, "y": 1.6, "look_at_x": 0.5, "look_at_z": 0.2, "look_at_y": 1.0, "fov_deg": 55},
+        {"id": "CAM_B_lead", "label": "B 老周近景", "x": -0.9, "z": -1.2, "y": 1.3, "look_at_x": 0.0, "look_at_z": 0.78, "look_at_y": 1.1, "fov_deg": 38},
+        {"id": "CAM_C_low_investigator", "label": "C 仰拍调查官", "x": -0.2, "z": -1.4, "y": 1.0, "look_at_x": 1.1, "look_at_z": -0.2, "look_at_y": 1.55, "fov_deg": 45}
+      ]
+    }
+  ]
+}

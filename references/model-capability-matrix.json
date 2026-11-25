@@ -1,0 +1,1225 @@
+{
+  "expires_at": "2026-12-08",
+  "pricing": {
+    "elevenlabs": {
+      "480p": 1302.294,
+      "720p": 2800.932
+    },
+    "xyq": {},
+    "lovart": {}
+  },
+  "schema_version": "1.0",
+  "captured_at": "2026-11-24",
+  "audit_scope": "Canonical official model documentation, public CLI schema capabilities, and verified runtime observations. Host-local availability is detected dynamically via scripts/list_execution_providers.py; unverified fields are marked 'TODO_VERIFY_LIVE'.",
+  "models": [
+    {
+      "model_id": "doubao-seedance-2-5-260628",
+      "planning_duration_range_s": {
+        "min": 4,
+        "max": 15,
+        "step": 1
+      },
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "volcengine_ark",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.volcengine.com/docs/ark/seedance-2-5?lang=zh",
+      "source_class": "official_api_docs",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratios": [
+        "adaptive",
+        "16:9",
+        "9:16",
+        "21:9",
+        "4:3",
+        "3:4",
+        "1:1"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 30,
+        "step": 1,
+        "smart_auto": -1
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_first_frame",
+        "i2v_first_last_frame",
+        "omni_reference",
+        "video_edit",
+        "video_extension"
+      ],
+      "ref_limits": {
+        "images": 30,
+        "videos": 10,
+        "audios": 10,
+        "max_video_total_s": 30,
+        "max_audio_total_s": 30
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Integer-second timestamps ([0-3s], [3-6s]); multi-view character refs & whitemodel supported; dialogue format '角色（情绪）：内容'; separate from Seedance 2.0 shot-index syntax.",
+      "draft_upgradable": "TODO_VERIFY_LIVE",
+      "known_pitfalls": [
+        "Direct upload of unauthorized real human faces blocked; requires project supported_asset_types=['liveness_face'] / certified asset:// library.",
+        "Video edit requires duration=-1 and ratio=adaptive; extend & first/last-frame require ratio=adaptive.",
+        "Input image resolution higher than output resolution can produce fingerprint-like texture artifacts (official prompt guide).",
+        "Video edit output may shorten by ~0.33s unless input frame count is 8n+1.",
+        "Ark API native resolution enum does not promise native 4K."
+      ],
+      "local_availability": "probe_via_ark_env_or_partner_adapters"
+    },
+    {
+      "model_id": "seedance_2_5",
+      "category": "video",
+      "provider": "higgsfield_cli",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.higgsfield.ai/docs/models/seedance-2-5",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 30,
+        "default": 5,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "omni_reference",
+        "video_edit",
+        "video_extension"
+      ],
+      "ref_limits": {
+        "total_media": 50,
+        "images_including_keyframes": 30,
+        "video_edit_videos": 1
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Seedance 2.5 integer-second timestamps + explicit reference role binding; CLI warns against prompts starting with '@' (parsed as file path!).",
+      "draft_upgradable": true,
+      "known_pitfalls": [
+        "CLI parses --prompt starting with '@' as a local file path (causes exit code 4 unless prefixed with 'Prompt: ').",
+        "480p draft outputs 854x480 24fps with 32kHz AAC audio (ffprobe verified); draft and draft_job_id are mutually exclusive.",
+        "start_image/end_image only allowed in mode='omni_reference'; extension_mode required iff mode='video_extension'.",
+        "'4k' in resolution enum should be tracked separately from Ark native output (upscale path verification required).",
+        "Protected IP keywords (e.g., trademarked game or film titles) trigger 'Protected content' moderation refusal; check credit balance before batch submission."
+      ],
+      "local_availability": "probe_via_higgsfield_cli"
+    },
+    {
+      "model_id": "cinematic_studio_video_4_0",
+      "category": "video",
+      "provider": "higgsfield_workflow",
+      "captured_at": "2026-11-24",
+      "source_url": "https://higgsfield.ai/blog/cinema-studio-4-0",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 30,
+        "default": 5,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "omni_reference",
+        "video_edit",
+        "video_extension"
+      ],
+      "ref_limits": {
+        "total_media": 50,
+        "images_including_keyframes": 30
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Seedance 2.5 base + structured Director's Panel metadata (camera_model_id, camera_lens_id, camera_aperture_id, era_id, genre_id, pacing_id, color_palette, light/light_id/light_custom).",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "No draft/draft_job_id parameter exposed in workflow schema (unlike raw seedance_2_5).",
+        "Resolution enum stops at 1080p (no 4k option).",
+        "Strict CEL mutual exclusions between light='custom', light_id, and light_custom.",
+        "Workflow quote selector cannot be blindly copied into generate create job-type."
+      ],
+      "local_availability": "probe_via_higgsfield_cli"
+    },
+    {
+      "model_id": "Seedance_2.5 / Seedance_2.5_draft / Seedance_2.5_flash",
+      "frame_modes": [
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "xyq_pippit_cli",
+      "captured_at": "2026-11-24",
+      "source_url": "https://www.pippit.ai/business/seedance/seedance-2-5-launch",
+      "source_class": "live_cli_schema",
+      "native_resolutions": {
+        "Seedance_2.5": [
+          "480p",
+          "720p",
+          "1080p",
+          "4k"
+        ],
+        "Seedance_2.5_flash": [
+          "480p",
+          "720p"
+        ],
+        "Seedance_2.5_draft": [
+          "480p_draft",
+          "1080p_final_via_draft_task_id"
+        ]
+      },
+      "aspect_ratios": [
+        "adaptive",
+        "16:9",
+        "21:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 30,
+        "default": 10,
+        "step": 1
+      },
+      "input_modes": [
+        "reference_generation",
+        "video_edit",
+        "video_extend",
+        "first_last_frame"
+      ],
+      "ref_limits": "TODO_VERIFY_LIVE",
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "XYQ 5-stage prompt formula (视频类型 → 内容要点 → 情绪氛围 → 画面风格 → 时长) + Seedance 2.5 integer-second timestamps; replace camera/film brand names with generic optical descriptions.",
+      "draft_upgradable": true,
+      "known_pitfalls": [
+        "Camera/film brand names (ARRI Alexa, Cooke S4, Kodak Vision3, Montblanc) trigger copyright refusal.",
+        "ret=12004 text moderation failure may still exit with shell rc=0; must parse JSON body.",
+        "Seedance_2.5_draft final upgrade via --draft-task-id expires 7 days after draft creation and must stay on model Seedance_2.5_draft.",
+        "Concurrent batch submission without balance preflight risks mid-batch credit exhaustion.",
+        "Always run get-credit-balance and model list before submitting; CLI catalogs change over time."
+      ],
+      "local_availability": "probe_via_xyq_pippit_cli"
+    },
+    {
+      "model_id": "bytedance-seedance-v2.5",
+      "category": "video",
+      "provider": "elevenlabs_web_adapter",
+      "captured_at": "2026-11-24",
+      "source_url": "https://elevenlabs.io/video/seedance-2-5",
+      "source_class": "observed_local_runtime",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "TODO_VERIFY_LIVE"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "TODO_VERIFY_LIVE"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 12,
+        "observed_tiers_s": [
+          4,
+          8,
+          12
+        ],
+        "upper_bound": "TODO_VERIFY_LIVE"
+      },
+      "input_modes": [
+        "t2v",
+        "omni_reference",
+        "video_edit"
+      ],
+      "ref_limits": "TODO_VERIFY_LIVE",
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Seedance 2.5 natural/timestamped prompt with uploaded reference attachments via ElevenLabs Creative web UI.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Direct POST /v1/content/generations is gated by hcaptcha_token (HTTP 401 when invoked without verified web session).",
+        "High credit cost: 480p = 1302.294 credits/s, 720p = 2800.932 credits/s; NO draft-to-final seed upgrade.",
+        "480p output is 854x480 24fps with 32kHz AAC audio (ffprobe verified).",
+        "HTTP 402 quota blocks terminate batches mid-run; always check account credits beforehand."
+      ],
+      "local_availability": "probe_via_elevenlabs_web_adapter"
+    },
+    {
+      "model_id": "seedance_2_0 / doubao-seedance-2-0-260128",
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "volcengine_ark_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.volcengine.com/docs/ark/seedance-2-5-prompt-guide?lang=zh",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p",
+        "4k_higgsfield_std_only"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "21:9"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 15,
+        "default": 5,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_first_frame",
+        "i2v_first_last_frame",
+        "omni_reference"
+      ],
+      "ref_limits": {
+        "images_including_keyframes": 9,
+        "videos": 3,
+        "audios": 3,
+        "total_media": 12
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Shot-index syntax (镜 1 / 镜 2); DOES NOT respond to integer-second timestamps (explicitly documented in Volcengine 2.5 prompt guide); avoid multi-view character sheets.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Rules and limits (9/3/3, total 12, max 15s) MUST NOT be conflated with Seedance 2.5.",
+        "mode='fast' supports only 480p/720p (1080p/4k rejected).",
+        "audio_references require at least one image, video, start_image, or end_image."
+      ],
+      "local_availability": "probe_via_ark_higgsfield_or_xyq"
+    },
+    {
+      "model_id": "gemini_omni_flash_1_2",
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "google_flow_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://aistudio.google.com/docs/video",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "360p",
+        "720p",
+        "1080p",
+        "4k"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16"
+      ],
+      "duration_range_s": {
+        "min": 3,
+        "max": 15,
+        "ref_flf_extend_max_s": 10,
+        "default": 8
+      },
+      "input_modes": [
+        "text-to-video",
+        "image-to-video",
+        "reference-to-video",
+        "edit",
+        "extend"
+      ],
+      "ref_limits": {
+        "google_flow_ui_observed": 6,
+        "higgsfield_api": "TODO_VERIFY_LIVE"
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Natural English narrative + timestamped beats; explicit 'Image N (role)' references in Flow Ingredients mode; quoted speech for native 48kHz audio.",
+      "draft_upgradable": true,
+      "known_pitfalls": [
+        "Higgsfield CEL rule: references, first/last frames, and extensions capped at <=10s; reference-to-video cannot mix with start_image/end_image.",
+        "Google Flow 360p (640x360, 1 cr/s) supports native '720p Upscaled' (1280x720) tile upgrade; web masonry UI can shift between renders—verify filename/prompt before downloading.",
+        "Higher multi-ref hallucination rate for complex 3D vehicle interiors / LHD-RHD seats; prefer locked interior plate refs.",
+        "Moderation filter can false-positive on prop/action words (e.g., iron bar, guard, bolt cutters) and reCAPTCHA checks."
+      ],
+      "local_availability": "probe_via_browser_bridge_or_higgsfield"
+    },
+    {
+      "model_id": "veo-3.1-generate-001 / veo3_1 / veo3_1_lite",
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "google_ai_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://aistudio.google.com/docs/veo",
+      "source_class": "official_api_docs",
+      "native_resolutions": [
+        "720p",
+        "1080p",
+        "TODO_VERIFY_LIVE"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16"
+      ],
+      "duration_range_s": {
+        "enum": [
+          4,
+          6,
+          8
+        ],
+        "default": 8
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_first_frame",
+        "i2v_first_last_frame",
+        "reference_images_up_to_3",
+        "extend"
+      ],
+      "ref_limits": {
+        "images": 3,
+        "videos": 0,
+        "audios": 0
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Medium-density cinematic natural prose focusing on one hero motion or dialogue; quoted speech, explicit SFX & ambience; never re-describe static appearance already locked in keyframe.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "veo3_1_lite forces duration==8 when both start_image and end_image are provided.",
+        "In 2-step I2V (Nano Banana 2.1 -> Veo 3.1), prompting motion for an occluded limb breaks visible foreground hand physics.",
+        "Strict discrete duration enum (4/6/8s only); 1080p/reference modes often require 8s."
+      ],
+      "local_availability": "probe_via_gemini_api_browser_or_higgsfield"
+    },
+    {
+      "model_id": "kling4_0 / kling_4_0_flash",
+      "frame_modes_by_model": {
+        "kling4_0": [
+          "first_frame",
+          "first_last_frame"
+        ],
+        "kling_4_0_flash": [
+          "first_frame"
+        ]
+      },
+      "frame_slots": {
+        "first_frame": "start_image",
+        "last_frame": "end_image"
+      },
+      "dynamic_range_by_model": {
+        "kling4_0": {
+          "sdr": [
+            "720p",
+            "1080p",
+            "4k"
+          ],
+          "hdr": [
+            "1080p",
+            "4k"
+          ]
+        }
+      },
+      "category": "video",
+      "provider": "kling_via_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://kling.ai/document-api/quickStart/productIntroduction/overview",
+      "source_class": "live_cli_schema",
+      "native_resolutions": {
+        "kling4_0": [
+          "720p",
+          "1080p",
+          "4k"
+        ],
+        "kling_4_0_flash": [
+          "720p"
+        ]
+      },
+      "aspect_ratios": [
+        "21:9",
+        "16:9",
+        "9:16",
+        "1:1",
+        "auto"
+      ],
+      "duration_range_s": {
+        "min": 3,
+        "max": 30,
+        "default": 10,
+        "exact_api_bound": "TODO_VERIFY_LIVE"
+      },
+      "input_modes": [
+        "text-to-video",
+        "image-to-video",
+        "reference-to-video",
+        "video-edit"
+      ],
+      "ref_limits": {
+        "images_including_keyframes": 10,
+        "total_images_videos_elements": 15
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Bind kling_element_ids / speakers first, then camera beat, start/end physical state, and motion causality.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "dynamic_range='hdr' requires 1080p or 4k (forbidden at 720p).",
+        "text-to-video forbids aspect_ratio='auto' and forbids all references.",
+        "kling_4_0_flash image-to-video requires exactly one start_image and zero references."
+      ],
+      "local_availability": "probe_via_kling_api_or_higgsfield"
+    },
+    {
+      "model_id": "kling3_0 / kling_o3_image_reference / kling_o3_flf",
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "kling_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://kling.ai/document-api/apiReference/model/OmniVideo",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "720p_std",
+        "1080p_pro",
+        "4k"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "duration_range_s": {
+        "min": 3,
+        "max": 15,
+        "default": 5,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_first_frame",
+        "i2v_first_last_frame",
+        "omni_image_reference",
+        "multi_shot",
+        "video_edit"
+      ],
+      "ref_limits": "TODO_VERIFY_LIVE",
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Speaker/Element binding + short beat segments; multi_shots=true requires non-empty multi_prompt array.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "CEL constraint: multi_shots boolean must match (size(multi_prompt) > 0).",
+        "kling_o3_flf: end_image requires start_image; aspect ratios limited to 16:9, 9:16, 1:1 (no 21:9)."
+      ],
+      "local_availability": "probe_via_kling_api_or_higgsfield"
+    },
+    {
+      "model_id": "grok-imagine-video-1.5 / grok_video_v15",
+      "frame_modes": [
+        "first_frame"
+      ],
+      "category": "video",
+      "provider": "xai_api_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.x.ai/developers/model-capabilities/video/overview",
+      "source_class": "official_api_docs",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "duration_range_s": {
+        "min": 1,
+        "max": 15,
+        "default": 5,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_start_image",
+        "reference_images_to_video",
+        "audio_reference"
+      ],
+      "ref_limits": {
+        "xai_official_docs": {
+          "images": 14,
+          "voices": 3
+        },
+        "openai_compat_proxy": {
+          "images": 7
+        }
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Cinematic natural prose + timestamped beats; OpenAI-compatible proxy route uses 0-indexed '<IMAGE_0>' reference syntax; strong native Chinese & English speech.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "CRITICAL WEB TRAP: Grok Web chat (browser automation) silently returns 736x400 (or 672x448 3:2) low-res streams with embedded mjpeg 90k fps cover track, unlike API/proxy 1280x720.",
+        "Higgsfield grok_video_v15 CEL rule: 1080p is FORBIDDEN when using image_references or audio_references; start_image cannot mix with references.",
+        "Monitor vehicle interior geometry carefully (e.g., duplicate steering wheel or prop growth) in post-gen QC.",
+        "Always strip embedded mjpeg stream via 'ffmpeg -map 0:v:0 -map 0:a:0?' and verify width/height before mastering."
+      ],
+      "local_availability": "probe_via_xai_api_proxy_or_web_bridge"
+    },
+    {
+      "model_id": "grok-imagine-video-1.5-lite / grok_video_v15_lite",
+      "frame_modes": [
+        "first_frame"
+      ],
+      "category": "video",
+      "provider": "xai_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.x.ai/developers/model-capabilities/video/generation",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p_upscaled"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "1:1",
+        "3:2",
+        "2:3"
+      ],
+      "duration_range_s": {
+        "min": 1,
+        "max": 15,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_start_image"
+      ],
+      "ref_limits": {
+        "start_image": 1,
+        "multi_image_references": 0
+      },
+      "native_audio": true,
+      "lipsync": "TODO_VERIFY_LIVE",
+      "prompt_dialect": "Simple single-shot T2V/I2V natural motion prompt.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "No multi-image reference array in Higgsfield schema (start_image only).",
+        "1080p is upscaled rather than native."
+      ],
+      "local_availability": "probe_via_xai_api_or_higgsfield"
+    },
+    {
+      "model_id": "MiniMax-H3 / minimax_h3 / minimax_h3_max",
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "minimax_api_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://platform.minimax.io/docs/guides/video-generation",
+      "source_class": "official_api_docs",
+      "native_resolutions": {
+        "minimax_api": [
+          "768P",
+          "2K"
+        ],
+        "higgsfield_h3": [
+          "2K"
+        ],
+        "higgsfield_h3_max": [
+          "480p",
+          "768p"
+        ]
+      },
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 15,
+        "default": 5,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_first_frame",
+        "i2v_first_last_frame",
+        "omni_reference"
+      ],
+      "ref_limits": {
+        "images": 9,
+        "videos": 3,
+        "audios": 3,
+        "total_media": 12,
+        "max_video_total_s": 15,
+        "max_audio_mb": 15
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Up to 7,000 chars; camera tags like [Pan Right]; <Picture N> reference syntax in open/Colab builds; 24fps + 32kHz stereo native audio.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Strict CEL rule: start_image/end_image CANNOT be mixed with image/video/audio_references.",
+        "Reference image aspect ratios must stay within [2:5, 5:2].",
+        "Removed from current XYQ pippit-tool-cli account catalog as of 2026-11-24 (rc=1)."
+      ],
+      "local_availability": "probe_via_minimax_api_or_higgsfield"
+    },
+    {
+      "model_id": "minimax-h3-singularity-v2-colab",
+      "category": "video",
+      "provider": "self_hosted_h3",
+      "captured_at": "2026-11-24",
+      "source_url": "https://platform.minimax.io/docs/guides/video-generation",
+      "source_class": "observed_local_runtime",
+      "native_resolutions": [
+        "1408x768"
+      ],
+      "aspect_ratios": [
+        "16:9_approx_1408x768"
+      ],
+      "duration_range_s": {
+        "min": 4,
+        "max": 10,
+        "step": 1
+      },
+      "input_modes": [
+        "t2v",
+        "reference_media_up_to_9"
+      ],
+      "ref_limits": {
+        "images": 9
+      },
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "1-indexed '<Picture 1>' (approved keyframe) + '<Picture 2..N>' (character/prop IDs); Turbo 6-step; explicit English lip-sync & 'zero on-screen text' suffix.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Cold-start GPU boot + first clip takes longer on self-hosted workers (~210s cold boot observed on cloud GPU).",
+        "Keep artifact downloads intact without lossy intermediate multi-part re-encoding when transferring from remote GPUs.",
+        "Sensitive to mistranslated English prompts (e.g., mistaking 'unbadged' for 'bare-chested'); verify literal wardrobe wording.",
+        "Verify exact endpoint capability and file-transfer limits before batch submission."
+      ],
+      "local_availability": "probe_via_self_hosted_gpu_endpoint"
+    },
+    {
+      "model_id": "minimax_hailuo / MiniMax-Hailuo-2.3",
+      "frame_modes": [
+        "first_frame"
+      ],
+      "category": "video",
+      "provider": "minimax_api_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://platform.minimax.io/docs/api-reference/api-overview",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "512p_legacy_only",
+        "768p",
+        "1080p_6s_only"
+      ],
+      "aspect_ratios": "TODO_VERIFY_LIVE",
+      "duration_range_s": {
+        "enum": [
+          6,
+          10
+        ],
+        "default": 6
+      },
+      "input_modes": [
+        "t2v_v23_only",
+        "i2v_start_image",
+        "i2v_first_last_frame_legacy_only"
+      ],
+      "ref_limits": {
+        "start_image": 1,
+        "end_image_legacy_only": 1
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "Single-shot physical motion & micro-expression description with optional camera brackets.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "CEL rules: 10s duration is incompatible with 1080p; minimax-2.3 and 2.3-fast forbid end_image and forbid 512p.",
+        "Only minimax-2.3 supports T2V without start_image."
+      ],
+      "local_availability": "probe_via_minimax_api_or_higgsfield"
+    },
+    {
+      "model_id": "wan3_0 / wan3_0_prime",
+      "frame_modes": [
+        "first_frame",
+        "first_last_frame"
+      ],
+      "category": "video",
+      "provider": "higgsfield_and_xyq",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.higgsfield.ai/docs/models/seedance-2-5",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "16:9",
+        "9:16",
+        "1:1",
+        "4:3",
+        "3:4"
+      ],
+      "duration_range_s": {
+        "min": 2,
+        "max": 30,
+        "smart_auto": -1,
+        "xyq_min": 4
+      },
+      "input_modes": [
+        "t2v",
+        "i2v_first_frame",
+        "i2v_first_last_frame",
+        "omni_reference"
+      ],
+      "ref_limits": "TODO_VERIFY_LIVE",
+      "native_audio": true,
+      "lipsync": "TODO_VERIFY_LIVE",
+      "prompt_dialect": "Structured motion prompt; Higgsfield exposes enable_thinking boolean.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "CEL rule: start_image/end_image cannot be combined with reference media; end_image requires start_image."
+      ],
+      "local_availability": "probe_via_xyq_or_higgsfield"
+    },
+    {
+      "model_id": "generate_video_seedance_v2_5",
+      "category": "video",
+      "provider": "lovart_api",
+      "captured_at": "2026-11-24",
+      "source_url": "https://www.lovart.ai",
+      "source_class": "observed_local_runtime",
+      "native_resolutions": [
+        "480p",
+        "720p",
+        "1080p",
+        "TODO_VERIFY_LIVE"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "TODO_VERIFY_LIVE"
+      ],
+      "duration_range_s": {
+        "observed_lower_max": 20,
+        "official_max": "TODO_VERIFY_LIVE"
+      },
+      "input_modes": [
+        "agent_chat_with_url_attachments"
+      ],
+      "ref_limits": "TODO_VERIFY_LIVE",
+      "native_audio": true,
+      "lipsync": true,
+      "prompt_dialect": "Must prefix imperative execution instruction ('Generate the video immediately, do NOT ask questions, do NOT split into multiple clips') + Seedance 2.5 prompt.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "No draft tier and no automated balance query subcommand in CLI.",
+        "Agent frequently replies with text-only plan ('Shall I proceed?') instead of generating; confirm subcommand fails HTTP 500 on this state.",
+        "--prefer-models is a preference, not a hard lock; must audit reported_tool in receipt.",
+        "Single request may emit multiple MP4s (1 full + N beat clips); must ffprobe all outputs.",
+        "Unlimited tier covers model fee only; Agent orchestration still fails if credit balance is empty."
+      ],
+      "local_availability": "probe_via_lovart_api"
+    },
+    {
+      "model_id": "nano_banana_2_1",
+      "category": "image",
+      "provider": "google_flow_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://deepmind.google/models/gemini-image/",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "1k",
+        "2k",
+        "4k"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "1:1",
+        "3:2",
+        "2:3",
+        "4:3",
+        "3:4",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9",
+        "4:1",
+        "1:4",
+        "8:1",
+        "1:8"
+      ],
+      "duration_range_s": null,
+      "input_modes": [
+        "t2i",
+        "multi_image_reference",
+        "region_inpaint_mask",
+        "video_reference_frame_anchor"
+      ],
+      "ref_limits": {
+        "images_including_mask": 14,
+        "video_refs_disabled_during_inpaint": true
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "Clean descriptive keyframe prompt; supports thinking_level (minimal/medium/high), seed, web/image search grounding; ideal Step 1 keyframe anchor before Veo 3.1 / Omni 1.2.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "CEL rule: video_references are forbidden when is_inpaint=true; max 14 image inputs including mask.",
+        "Must lock visible limb placement in Step 1 so Step 2 I2V never animates an occluded limb."
+      ],
+      "local_availability": "probe_via_gemini_api_browser_or_higgsfield"
+    },
+    {
+      "model_id": "text2image_soul_v2 / soul_id",
+      "category": "image",
+      "provider": "higgsfield_cli",
+      "captured_at": "2026-11-24",
+      "source_url": "https://open.higgsfield.ai/models/soul-id/api-reference",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "1.5k",
+        "2k"
+      ],
+      "aspect_ratios": [
+        "1:1",
+        "16:9",
+        "9:16",
+        "4:3",
+        "3:4",
+        "3:2",
+        "2:3"
+      ],
+      "duration_range_s": null,
+      "input_modes": [
+        "t2i",
+        "soul_custom_reference_id",
+        "single_image_reference",
+        "style_preset"
+      ],
+      "ref_limits": {
+        "image_references": 1,
+        "soul_id_training_photos": "20-80"
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "Photographic portrait & character lookbook prompt paired with custom_reference_id (Soul ID) or style_id.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "CEL rules: max 1 image_reference; style_id CANNOT be combined with image_references.",
+        "Soul ID cross-model portability varies by target model schema (must inspect live model get)."
+      ],
+      "local_availability": "probe_via_higgsfield_cli"
+    },
+    {
+      "model_id": "seedream_5_5",
+      "xyq_ratio_enum": {
+        "adaptive": 0,
+        "21:9": 13,
+        "16:9": 2,
+        "9:16": 3,
+        "4:3": 4,
+        "3:4": 5,
+        "1:1": 6
+      },
+      "category": "image",
+      "provider": "higgsfield_and_xyq",
+      "captured_at": "2026-11-24",
+      "source_url": "https://www.pippit.ai/business/seedance/seedance-2-5-launch",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "1k",
+        "1.5k",
+        "2k"
+      ],
+      "aspect_ratios": [
+        "auto",
+        "1:1",
+        "4:3",
+        "3:4",
+        "16:9",
+        "9:16",
+        "3:2",
+        "2:3",
+        "21:9"
+      ],
+      "duration_range_s": null,
+      "input_modes": [
+        "t2i",
+        "multi_image_reference",
+        "transparent_background"
+      ],
+      "ref_limits": {
+        "image_references": 10
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "Structured character sheet / scene plate / prop card prompt; supports background='transparent' for composited assets.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "XYQ CLI image --ratio takes integer enum (e.g., 3 for 9:16), NOT string ratio; must inspect model describe first.",
+        "Max 10 image_references on Higgsfield."
+      ],
+      "local_availability": "probe_via_xyq_or_higgsfield"
+    },
+    {
+      "model_id": "grok-imagine-image-2.0 / grok_image_2_0",
+      "category": "image",
+      "provider": "xai_and_higgsfield",
+      "captured_at": "2026-11-24",
+      "source_url": "https://docs.x.ai/developers/model-capabilities/imagine",
+      "source_class": "official_api_docs",
+      "native_resolutions": [
+        "1k",
+        "2k"
+      ],
+      "aspect_ratios": [
+        "1:1",
+        "auto",
+        "1:2",
+        "2:1",
+        "3:2",
+        "2:3",
+        "4:3",
+        "3:4",
+        "16:9",
+        "9:16"
+      ],
+      "duration_range_s": null,
+      "input_modes": [
+        "t2i",
+        "image_edit_reference"
+      ],
+      "ref_limits": {
+        "xai_docs": "5-7",
+        "higgsfield_cli": "TODO_VERIFY_LIVE"
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "Direct photorealistic/stylized image prompt with optional reference edit instructions.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Higgsfield quality enum only exposes low/medium."
+      ],
+      "local_availability": "probe_via_xai_api_or_higgsfield"
+    },
+    {
+      "model_id": "minimax_h3_image",
+      "category": "image",
+      "provider": "higgsfield_and_self_hosted_h3",
+      "captured_at": "2026-11-24",
+      "source_url": "https://platform.minimax.io/docs/guides/video-generation",
+      "source_class": "live_cli_schema",
+      "native_resolutions": [
+        "1k",
+        "2k",
+        "4k",
+        "1376x768_colab"
+      ],
+      "aspect_ratios": [
+        "16:9",
+        "9:16",
+        "1:1",
+        "21:9",
+        "TODO_VERIFY_LIVE"
+      ],
+      "duration_range_s": null,
+      "input_modes": [
+        "t2i",
+        "reference_media_up_to_9"
+      ],
+      "ref_limits": {
+        "colab_h3_observed": 9,
+        "higgsfield_cli": "TODO_VERIFY_LIVE"
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "Cinematic still prompt with <Picture 1..N> character/location identity anchoring.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Avoid split-screen collage leakage by explicitly appending 'single unified live-action frame, never split-screen'."
+      ],
+      "local_availability": "probe_via_minimax_or_higgsfield"
+    },
+    {
+      "model_id": "eleven_v4 / eleven_v4_turbo / eleven_flash_v2_5",
+      "category": "audio",
+      "provider": "elevenlabs_api",
+      "captured_at": "2026-11-24",
+      "source_url": "https://elevenlabs.io/docs/overview/capabilities/text-to-speech",
+      "source_class": "official_api_docs",
+      "native_resolutions": null,
+      "aspect_ratios": null,
+      "duration_range_s": "TODO_VERIFY_LIVE",
+      "input_modes": [
+        "tts_rest",
+        "tts_websocket_stream",
+        "voice_cloning",
+        "multi_speaker_dialogue"
+      ],
+      "ref_limits": {
+        "voice_id": 1
+      },
+      "native_audio": true,
+      "lipsync": false,
+      "prompt_dialect": "Spoken dialogue text with punctuation pacing & emotional delivery tags across 90+ languages.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "NEVER layer external TTS onto unstripped native video speech (causes bilingual vocal collision).",
+        "Always freeze approved voice_id per character in project manifest."
+      ],
+      "local_availability": "probe_via_elevenlabs_api"
+    },
+    {
+      "model_id": "eleven_text_to_sound_v3",
+      "category": "audio",
+      "provider": "elevenlabs_api",
+      "captured_at": "2026-11-24",
+      "source_url": "https://elevenlabs.io/docs/overview/capabilities/sound-effects",
+      "source_class": "official_api_docs",
+      "native_resolutions": null,
+      "aspect_ratios": null,
+      "duration_range_s": {
+        "min": 0.1,
+        "max": 30.0
+      },
+      "input_modes": [
+        "text_to_sfx",
+        "seamless_loop_ambience"
+      ],
+      "ref_limits": {
+        "media_refs": 0
+      },
+      "native_audio": true,
+      "lipsync": false,
+      "prompt_dialect": "Physical foley & acoustic environment description (source material, impact, room decay, distance); replaces brittle Python sine-wave SFX.",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Mix SFX & ambience under dialogue using sidechaincompress ducking; check integrated loudness (-14 to -16 LUFS) and True Peak (<= -1 dBFS)."
+      ],
+      "local_availability": "probe_via_elevenlabs_api"
+    },
+    {
+      "model_id": "bytedance_video_upscale / topaz_video",
+      "category": "video",
+      "provider": "higgsfield_postprocess",
+      "captured_at": "2026-11-24",
+      "source_url": "https://open.higgsfield.ai/models/bytedance/seedance-2.5/text-to-video/api-reference",
+      "source_class": "live_cli_schema",
+      "native_resolutions": {
+        "bytedance_video_upscale": [
+          "1080p",
+          "2k",
+          "4k"
+        ],
+        "topaz_video": [
+          "1080p",
+          "2160p"
+        ]
+      },
+      "aspect_ratios": [
+        "auto",
+        "21:9",
+        "16:9",
+        "4:3",
+        "1:1",
+        "3:4",
+        "9:16"
+      ],
+      "duration_range_s": "inherits_input_video",
+      "input_modes": [
+        "video_upscale",
+        "frame_interpolation"
+      ],
+      "ref_limits": {
+        "video_references": 1
+      },
+      "native_audio": false,
+      "lipsync": false,
+      "prompt_dialect": "No text prompt; parameter-driven post-process (bytedance presets: common/aigc/short_series/ugc/old_film; topaz enhancement + frame_interpolation).",
+      "draft_upgradable": false,
+      "known_pitfalls": [
+        "Always report native generation resolution separately from post-process upscaled delivery resolution.",
+        "Upscaling severely degraded 736x400 / 672x448 web streams cannot recover lost facial detail."
+      ],
+      "local_availability": "probe_via_higgsfield_cli"
+    }
+  ]
+}

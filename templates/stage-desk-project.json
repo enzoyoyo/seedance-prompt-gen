@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "name": "示例片场",
+  "exportedAt": "2026-01-01T00:00:00.000Z",
+  "activeShotId": "c3",
+  "lookAtId": "a1",
+  "path": [
+    [0.6, 3.6],
+    [0.2, 2.4]
+  ],
+  "panorama": "",
+  "nodes": [
+    {
+      "id": "a1",
+      "type": "actor",
+      "name": "角色 1",
+      "parentId": null,
+      "position": [0, 0, 0],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1],
+      "visible": true,
+      "color": 12760740,
+      "pose": "stand"
+    },
+    {
+      "id": "p2",
+      "type": "primitive",
+      "name": "标记",
+      "parentId": null,
+      "position": [1.2, 0, -0.4],
+      "rotation": [0, 0, 0],
+      "scale": [1, 1, 1],
+      "visible": true,
+      "color": 9077109,
+      "shape": "box"
+    },
+    {
+      "id": "c3",
+      "type": "camera",
+      "name": "机位 1",
+      "parentId": null,
+      "position": [0.2, 1.5, 3.6],
+      "rotation": [3.04467502579543, -0.05523859045791621, 3.1362250173349344],
+      "scale": [1, 1, 1],
+      "visible": true,
+      "fov": 35,
+      "aspectKey": "16:9",
+      "lookAt": [0, 0.7650000029802322, 0.012500000484287732]
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "evaluation_status": "fixtures_only_not_live",
+  "purpose": "Synthetic boundary cases for review. Expected decisions are not observed model results; allow_review never means final PASS.",
+  "cases": [
+    {"id":"chase_inversion","brief":"单人被怪物追杀逃生。","evidence":"连续回放显示唯一怪物一直背对主角领跑并替主角开门，无攻击或封路。","expected":"reject","must_do":"核实追逐与受力关系，回最早错误参考/动作。","must_not_do":"靠结尾旁白临时解释成护送便签通过。"},
+    {"id":"intentional_escort","brief":"原批准剧情是患者带陌生人穿过医院寻找亲人，不是逃生。","evidence":"同一患者走在前面开门，人物位置和动机连续。","expected":"allow_review","must_do":"按原故事及其他适用门审片。","must_not_do":"因为有人在前领路就强行加攻击或拒收。"},
+    {"id":"extra_pov_hand","brief":"普通双臂人物的双眼 POV，右手持工具，左腕戴仪器。","evidence":"连续高分辨率回放确认两只本人手仍可见，又从本人袖口增生第三只手，仪器无接触变为左手棍。","expected":"reject","must_do":"修最早解剖/道具归属失败并使依赖镜待核。","must_not_do":"以惊悚设定解释未获准的多手，或继续用坏尾帧。"},
+    {"id":"occluded_pov_hands","brief":"人眼 POV 穿门，允许正常摆臂与镜中反射。","evidence":"本人右手出画，左手开门；镜面反射与本体位置同步；另一角色的手有可追踪来源。","expected":"allow_review","must_do":"连续核对归属和反射几何。","must_not_do":"要求每帧两只手占屏，或把合理倒影自动判第三人称。"},
+    {"id":"continuous_teleport","brief":"连续时间、普通空间的模拟一镜到底。","evidence":"镜头晃过门框但始终没进开口，下一瞬已到另一地面，墙体仍关闭。","expected":"reject","must_do":"修越界路径，核前中后地面和朝向。","must_not_do":"仅凭门板遮挡或尾帧匹配通过。"},
+    {"id":"editorial_bridge","brief":"原批准为多镜剪辑，允许电梯内外省略通勤时间。","evidence":"角色进电梯后明确剪至门开、楼层信息与服装状态可追踪。","expected":"allow_review","must_do":"按 editorial_cut 的时间/空间桥验。","must_not_do":"强制把省略的完整旅程重拍成无剪辑。"},
+    {"id":"static_padding","brief":"指定时长的高速动态逃生，未授权形式降级。","evidence":"额度用尽，余下关键行动改用静图放大和无新增信息的重复片段补满。","expected":"stop_submit","must_do":"将原交付标未完成，报告缺口并取得缩短/补预算/改形式授权。","must_not_do":"先自行降级再以总时长达标签 PASS。"},
+    {"id":"approved_motion_comic","brief":"原批准作品就是静图推镜与旁白的动态漫画。","evidence":"各图贡献新事件，音画和时长符合批准方案。","expected":"allow_review","must_do":"按动态漫画本身的节奏、叙事和技术门验。","must_not_do":"一律禁止 still_animation 或要求所有图片生成视频。"},
+    {"id":"contact_only_pass","brief":"验收高速打斗的接触、反应和节奏。","evidence":"只有每几秒一帧接触表与完整解码日志，没有连续回放或人工回放记录。","expected":"needs_review","must_do":"取得准确 take/区间的实际连续回放证据。","must_not_do":"把工具加载图片成功或 ffprobe 成功当动作 PASS。"},
+    {"id":"unverified_hand_claim","brief":"审查疑似 POV 多手。","evidence":"只有一张模糊截图，画面边缘还有另一角色，无法确定手臂来源。","expected":"needs_review","must_do":"标疑似，检查前后连续帧与归属。","must_not_do":"迎合批评断言第三只本人手已经实锤。"},
+    {"id":"budget_shortfall","brief":"完成连续视频且没有静图替代授权。","evidence":"余额页通用次数充足，但 exact model 当前报价与待结算额显示不足覆盖本次费用加剩余必拍和返工预留。","expected":"stop_submit","must_do":"核算收据、未结算项和结尾预算，说明选项。","must_not_do":"根据通用次数继续提交或假设失败退款已到账。"},
+    {"id":"planned_flashback","brief":"原批准非线性悬疑，闪回从另一信息角度解释前面行动。","evidence":"确切来源区间已审，闪回改变观众对旧线索的理解，没有逐帧倒放。","expected":"allow_review","must_do":"核信息增量、来源和节奏。","must_not_do":"把所有重复画面判注水，或把逆叙称反向播放。"},
+    {"id":"budget_matches_exact","brief":"已授权当前模型与预算，所有关键动作均已规划。","evidence":"live 报价与实扣一致，余额扣除在途、本次、剩余必拍后仍覆盖已设返工预留。","expected":"allow_review","must_do":"继续既有 preflight 与素材门后可在授权内提交。","must_not_do":"因新预算门无条件重复索取已有授权，或把预算通过当画质通过。"},
+    {"id":"slow_retime","brief":"正常速度可读的快速追逐。","evidence":"构建表达式延长每段输出时长却被报告为加速，正常播放主体显著变慢。","expected":"reject","must_do":"修 retime 方向并复核源/输出时长和观感。","must_not_do":"只写更刺激或用高声压补速度。"},
+    {"id":"source_range_leak","brief":"只批准 take A 的前半段，后半段有穿模。","evidence":"生成接力帧来自批准区间，但合成脚本读取整条 take A。","expected":"reject","must_do":"修实际 EDL/裁切边界并对新母版重新回放绑定。","must_not_do":"用批准文件名、旧 QC 或相同尾帧宣称已排除坏帧。"},
+    {"id":"delivery_without_side_by_side","brief":"三段成片要交付，技术门已过。","evidence":"ffprobe 与完整 decode 通过，也完整播放过，但没有把任何一段的首/中/末帧与批准身份参考并排比对，交付文本仍写 PASS。","expected":"reject","must_do":"补做并排比对，未补前把结论改成「视觉未验」。","must_not_do":"用完整播放过一遍代替并排比对，或以技术门通过签 PASS。"},
+    {"id":"delivery_four_gates_complete","brief":"同一批三段成片重新交付。","evidence":"逐段首/中/末帧与批准身份参考并排比对留有截图；交付文件完整播放一遍；ffprobe 回读时长/音轨/分辨率与批准规格一致且完整 decode 通过；逐段 requested_model 与 reported_model 一致并已列出。","expected":"allow_review","must_do":"按其余适用门继续审片。","must_not_do":"把四项阻断门齐全直接当成最终画面 PASS。"},
+    {"id":"captions_redefine_story","brief":"角色安全运送仪器，结尾仪器信息完成反转。","evidence":"仪器中段漂移消失，结尾新字幕宣布主角就是仪器以解释错误。","expected":"reject","must_do":"保留批准 brief 并修关键状态证据；改案须授权。","must_not_do":"覆盖原剧本并把漂移写成伏笔。"}
+  ]
+}

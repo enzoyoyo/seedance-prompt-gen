@@ -1,0 +1,92 @@
+{
+  "nbp_version": "2",
+  "characters": [
+    {
+      "ref": "@char_mira_v01",
+      "name": "Mira",
+      "state": "alert after hearing the archive door unlock",
+      "wardrobe": "@outfit_mira_courier_damaged_v02"
+    }
+  ],
+  "scene": "@location_archive_night_v01, narrow archive aisle with the fallen chair and glass fragments fixed in place",
+  "action": "The lock clicks, Mira tightens her grip on the brass key, turns toward the sealed door, and settles with squared shoulders in a clean final hold",
+  "camera": {
+    "shot_size": "medium shot ending in a medium close-up",
+    "angle": "eye level on the approved side of the archive-door axis",
+    "movement": "one restrained slow push-in",
+    "lens_note": "natural perspective with stable facial proportions"
+  },
+  "aspect_ratio": "9:16",
+  "duration": {
+    "target_s": 6,
+    "live_check": "TODO_VERIFY_LIVE"
+  },
+  "audio": {
+    "dialogue": [
+      "Mira (tight, one beat): Who opened it?"
+    ],
+    "ambience": "quiet archive room tone",
+    "music": "",
+    "sfx": "one metal lock click and cloth movement"
+  },
+  "beats": [
+    {
+      "start_s": 0,
+      "end_s": 1.5,
+      "action": "the lock clicks; Mira's knuckles whiten around the brass key",
+      "camera": "hold the medium shot"
+    },
+    {
+      "start_s": 1.5,
+      "end_s": 3.5,
+      "action": "she turns her head and shoulders to the sealed door and stops breathing for a beat",
+      "camera": "slow push-in begins after the turn"
+    },
+    {
+      "start_s": 3.5,
+      "end_s": 6,
+      "action": "eyes locked on the door gap, she speaks low, then holds still",
+      "camera": "push-in lands in a medium close-up and holds",
+      "say": "Mira (tight, one beat): Who opened it?"
+    }
+  ],
+  "script_ref": {
+    "source_beats": [
+      "S3-B2"
+    ],
+    "context": "Mira believes she holds the only key; the door was just unlocked from the other side"
+  },
+  "references": [
+    {
+      "ref": "@char_mira_v01",
+      "role": "character",
+      "use": "preserve facial identity and hairline"
+    },
+    {
+      "ref": "@location_archive_night_v01",
+      "role": "location",
+      "use": "preserve aisle geometry and practical-light direction"
+    },
+    {
+      "ref": "@frame_s03_relay_v01",
+      "role": "motion",
+      "use": "borrow only the restrained push-in path"
+    }
+  ],
+  "subject": "Mira reacts to the archive door unlocking",
+  "light": "warm desk lamp from frame left with cool corridor spill",
+  "style": "@style_amber_noir_v01, tactile practical-light realism",
+  "motion": "grip tightens first, then head and shoulders turn to the door together and weight settles onto the back foot; the push-in starts only after the turn and stops on her face",
+  "negative": [
+    "pseudo-text",
+    "watermark",
+    "unauthorized logo"
+  ],
+  "continuity": {
+    "story_time_id": "archive-door-unlock",
+    "in_state": "key held in right hand; sealed door closed",
+    "out_state": "key still held; Mira faces the opened door",
+    "mode": "tracked"
+  },
+  "live_params": {}
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>片场</title>
+  <link rel="stylesheet" href="/src/styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header>
+      <div class="brand">片场</div>
+      <input id="projectName" value="未命名片场" aria-label="片场名称" />
+      <div class="switch" role="group" aria-label="视角">
+        <button type="button" id="viewDirector" class="on">导演</button>
+        <button type="button" id="viewCamera">机位</button>
+      </div>
+      <label>画幅
+        <select id="aspect" aria-label="画幅"></select>
+      </label>
+      <label>视野
+        <input id="fov" type="range" min="18" max="80" value="35" />
+      </label>
+      <span id="fovReadout">35°</span>
+      <button type="button" id="shotBtn">截图</button>
+      <button type="button" id="copyNote">复制站位</button>
+      <button type="button" id="handoffBtn" title="一次下载工程 JSON、机位截图与站位说明">交接</button>
+      <button type="button" id="saveBtn">保存</button>
+      <button type="button" id="loadBtn">打开</button>
+      <input id="loadFile" type="file" accept="application/json,.json" hidden />
+    </header>
+    <aside id="outliner" aria-label="清单"></aside>
+    <main id="viewport">
+      <div id="frame"></div>
+    </main>
+    <aside id="right">
+      <div id="inspector"></div>
+      <pre id="note" aria-label="站位说明"></pre>
+    </aside>
+    <footer>
+      <div class="tools">
+        <button type="button" id="toolMove" class="on">移动</button>
+        <button type="button" id="toolRotate">旋转</button>
+        <button type="button" id="toolScale">缩放</button>
+        <button type="button" id="addActor">人体</button>
+        <button type="button" id="addBox">方块</button>
+        <button type="button" id="addSphere">球体</button>
+        <button type="button" id="addCyl">柱体</button>
+        <button type="button" id="addCrowd">群众</button>
+        <button type="button" id="addCam">机位</button>
+        <button type="button" id="pathTool">轨迹</button>
+        <button type="button" id="clearPath">清路点</button>
+        <button type="button" id="playPath">走位</button>
+        <button type="button" id="recordPath">录运镜</button>
+        <button type="button" id="panoBtn">全景</button>
+        <button type="button" id="clearPano">去掉全景</button>
+        <button type="button" id="modelBtn">模型</button>
+        <input id="panoFile" type="file" accept="image/*" hidden />
+        <input id="modelFile" type="file" accept=".glb,model/gltf-binary" hidden />
+      </div>
+      <div id="status">1 格 = 1 米</div>
+    </footer>
+  </div>
+  <script>
+    window.addEventListener("error", (event) => {
+      const status = document.querySelector("#status");
+      if (status && !window.__stage) status.textContent = event.message || "页面脚本没有跑起来";
+    });
+  </script>
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "/node_modules/three/build/three.module.js",
+      "three/addons/": "/node_modules/three/examples/jsm/"
+    }
+  }
+  </script>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>

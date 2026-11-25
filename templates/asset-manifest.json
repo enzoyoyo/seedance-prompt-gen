@@ -1,0 +1,61 @@
+{
+  "project": {
+    "title": "",
+    "project_code": "",
+    "authoritative_brief_path": "docs/brief.md",
+    "current_shotlist_path": "docs/shotlist.json",
+    "provider_schema_verified_at": null
+  },
+  "assets": [
+    {
+      "id": "asset-001",
+      "entity_id": "subject-001",
+      "asset_kind": "character",
+      "canonical_asset_name": "",
+      "canonical_tag": "@char_subject_v01",
+      "version": 1,
+      "tier": "take",
+      "approval_status": "candidate",
+      "approved_source_path": null,
+      "source_sha256": null,
+      "provider_reference": null,
+      "correction_source": null,
+      "purpose": "",
+      "source_type": "user-provided",
+      "tool_or_source": "user",
+      "source_url": null,
+      "prompt_or_command_path": null,
+      "local_path": null,
+      "duration_seconds": null,
+      "aspect_ratio": null,
+      "rights_or_attribution": "",
+      "qa_status": "pending",
+      "notes": ""
+    },
+    {
+      "id": "asset-002",
+      "entity_id": "subject-001",
+      "asset_kind": "audio",
+      "canonical_asset_name": "",
+      "canonical_tag": "@audio_subject_voice_v01",
+      "version": 1,
+      "tier": "take",
+      "approval_status": "candidate",
+      "approved_source_path": null,
+      "source_sha256": null,
+      "provider_reference": null,
+      "correction_source": null,
+      "purpose": "reference voice for dialogue pickup",
+      "source_type": "generated",
+      "tool_or_source": "tts | recording | approved-take-extract",
+      "source_url": null,
+      "prompt_or_command_path": null,
+      "local_path": null,
+      "duration_seconds": null,
+      "aspect_ratio": null,
+      "rights_or_attribution": "",
+      "qa_status": "pending",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "platforms": ["<platform the user named; leave the list empty only when undecided>"],
+  "platform_undecided": false,
+  "aspect_ratio": "<W:H>",
+  "aspect_ratio_source": "<platform | master_default (only when no platform is named)>",
+  "aspect_ratio_reason": "<why this ratio: the platform rule and the day it was checked, or the user's own choice of master>",
+  "target_duration_s": 0,
+  "real_public_figures": "<true | false, as JSON booleans>",
+  "on_screen_text": "<true | false, as JSON booleans>",
+  "native_bgm": "<true | false, as JSON booleans>",
+  "sensitive_terms": ["<terms from the platform list checked today; [] if none>"],
+  "sensitive_decisions": [
+    {"term": "<a term the script contains>", "decision": "<keep | reword | fix in post: the user's own decision>"}
+  ],
+  "lexicon": [],
+  "labels": {
+    "policy": "user_requested_only",
+    "requested": [],
+    "disclosure_questions": [
+      {"platform": "<platform>", "question": "<the disclosure the platform asks for, put to the user>"}
+    ]
+  }
+}

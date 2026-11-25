@@ -1,0 +1,24 @@
+{
+  "subject": "exactly one visible person, @char_mira_v01 in @outfit_mira_courier_damaged_v02, invariant identity and fixed tear coordinates, @prop_brass_key_v02 held in her right hand throughout",
+  "action": "She hears the lock click, tightens her grip, turns toward the sealed door, then settles with her shoulders squared",
+  "scene": "@location_archive_night_v01; the fallen chair and glass fragments remain fixed where recorded in continuity",
+  "camera": "camera remains on the approved side of axis_archive_door_01; eye-level medium shot; one slow push-in ending on her decision",
+  "light": "the same warm desk lamp remains frame left; cool corridor spill enters through the door without changing the established shadow direction",
+  "style": "@style_amber_noir_v01, restrained contrast and tactile practical-light realism",
+  "motion": "cause to reaction to follow-through: key turns, wrist absorbs resistance, shoulders rotate, coat hem lags, then all motion settles into a clean hold",
+  "duration": "6s creative target; 快照 2026-08-24，生成前 live 校验；默认 14 天过期",
+  "audio": "one metal lock click, cloth movement and archive room tone; dialogue and music remain post responsibilities",
+  "continuity_ref": [
+    "@char_mira_v01",
+    "@outfit_mira_courier_damaged_v02",
+    "@prop_brass_key_v02",
+    "@location_archive_night_v01",
+    "@style_amber_noir_v01",
+    "@frame_s03_relay_v01"
+  ],
+  "negative": [
+    "pseudo-text",
+    "watermark",
+    "unauthorized logo"
+  ]
+}

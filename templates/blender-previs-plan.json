@@ -1,0 +1,28 @@
+{
+  "schema_version": "blender-previs-1",
+  "shot_id": "S01_gate_proxy",
+  "fps": 12,
+  "frame_end": 48,
+  "width": 640,
+  "height": 360,
+  "engine": "BLENDER_EEVEE",
+  "objects": [
+    {"id":"floor","kind":"cube","position":[0,1,-0.1],"size":[10,12,0.2],"color":[0.3,0.3,0.3],"role":"ground plane"},
+    {"id":"left_jamb","kind":"cube","position":[-1.4,0,1.7],"size":[0.35,0.35,3.4],"color":[0.5,0.5,0.5],"role":"doorway left boundary"},
+    {"id":"right_jamb","kind":"cube","position":[1.4,0,1.7],"size":[0.35,0.35,3.4],"color":[0.5,0.5,0.5],"role":"doorway right boundary"},
+    {"id":"lintel","kind":"cube","position":[0,0,3.4],"size":[3.15,0.35,0.3],"color":[0.5,0.5,0.5],"role":"doorway upper boundary"},
+    {"id":"moving_proxy","kind":"sphere","position":[0,-2,0.6],"size":[1.2,1.2,1.2],"color":[0.15,0.45,0.65],"role":"motion and timing marker only; not an actor or final material","position_keys":[{"frame":1,"position":[0,-2,0.6]},{"frame":24,"position":[0,0,0.6]},{"frame":48,"position":[0,3,0.6]}]}
+  ],
+  "camera": {
+    "lens_mm": 32,
+    "sensor_width_mm": 36,
+    "clip_start": 0.05,
+    "clip_end": 100,
+    "keys": [
+      {"frame":1,"position":[4,-6,3],"target":[0,-2,0.6]},
+      {"frame":24,"position":[-3,-5,2.5],"target":[0,0,0.6]},
+      {"frame":48,"position":[-3,1,2.5],"target":[0,3,0.6]}
+    ]
+  },
+  "events": [{"id":"subject_crosses_gate","frame":24},{"id":"end_state","frame":48}]
+}

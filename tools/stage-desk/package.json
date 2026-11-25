@@ -1,0 +1,11 @@
+{
+  "name": "stage-desk",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node start.mjs"
+  },
+  "dependencies": {
+    "three": "^0.186.1"
+  }
+}

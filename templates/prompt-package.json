@@ -1,0 +1,108 @@
+{
+  "version": "1.3",
+  "package_status": "planning",
+  "objective": "Describe the visible viewer outcome",
+  "production_class": "single-shot",
+  "continuity_mode": "sparse",
+  "language": "zh-CN",
+  "format_intent": {
+    "platform": "short-video",
+    "aspect_ratio": "9:16",
+    "duration_seconds": null,
+    "shot_count": 1,
+    "live_schema_required": true
+  },
+  "references": [
+    {
+      "canonical_asset_id": "char-mira-v01",
+      "canonical_tag": "@char_mira_v01",
+      "entity_id": "mira",
+      "version": 1,
+      "semantic_role": "character",
+      "responsibilities": ["identity"],
+      "source_path": null,
+      "source_sha256": null,
+      "approval_status": "candidate",
+      "provider_field": null
+    },
+    {
+      "canonical_asset_id": "outfit-mira-courier-intact-v01",
+      "canonical_tag": "@outfit_mira_courier_intact_v01",
+      "entity_id": "mira-courier-intact",
+      "subject_id": "mira",
+      "version": 1,
+      "semantic_role": "wardrobe",
+      "responsibilities": ["wardrobe"],
+      "source_path": null,
+      "source_sha256": null,
+      "approval_status": "candidate",
+      "provider_field": null
+    },
+    {
+      "canonical_asset_id": "prop-brass-key-v02",
+      "canonical_tag": "@prop_brass_key_v02",
+      "entity_id": "brass-key",
+      "version": 2,
+      "semantic_role": "prop",
+      "responsibilities": ["shape", "state"],
+      "source_path": null,
+      "source_sha256": null,
+      "approval_status": "candidate",
+      "provider_field": null
+    },
+    {
+      "canonical_asset_id": "location-archive-night-v01",
+      "canonical_tag": "@location_archive_night_v01",
+      "entity_id": "archive-night",
+      "version": 1,
+      "semantic_role": "location",
+      "responsibilities": ["geography", "light-direction"],
+      "source_path": null,
+      "source_sha256": null,
+      "approval_status": "candidate",
+      "provider_field": null
+    },
+    {
+      "canonical_asset_id": "style-amber-noir-v01",
+      "canonical_tag": "@style_amber_noir_v01",
+      "entity_id": "amber-noir",
+      "version": 1,
+      "semantic_role": "style",
+      "responsibilities": ["palette", "texture"],
+      "source_path": null,
+      "source_sha256": null,
+      "approval_status": "candidate",
+      "provider_field": null
+    }
+  ],
+  "subject_locks": ["same identity and wardrobe"],
+  "shots": [
+    {
+      "shot_id": "s01",
+      "story_function": "establish the subject and action",
+      "visible_action": "one concrete visible action",
+      "camera": {
+        "placement": "eye level, facing the subject",
+        "shot_size_or_lens_feel": "medium shot",
+        "primary_path": "slow controlled push-in",
+        "direction_and_speed": "forward, gentle ease-in",
+        "narrative_job": "reveal the subject's decision"
+      },
+      "beat_map": ["setup", "action", "settle"],
+      "performance_or_physics": "cause, contact, response, follow-through, stable end state",
+      "light_and_material": "one motivated key light with coherent shadow direction",
+      "audio_policy": "ambient SFX in post",
+      "negative_constraints": ["no identity drift", "no pseudo-text", "no watermark"],
+      "prompt": "@char_mira_v01 in @outfit_mira_courier_intact_v01 holds @prop_brass_key_v02 in the right hand, performs one visible action inside @location_archive_night_v01 under @style_amber_noir_v01, then settles."
+    }
+  ],
+  "provider": {
+    "adapter": null,
+    "model_or_job_set": null,
+    "schema_verified_at": null,
+    "request_path": null,
+    "job_or_run_id": null,
+    "result_path": null
+  },
+  "post_responsibilities": ["exact text", "captions", "music", "final QC"]
+}

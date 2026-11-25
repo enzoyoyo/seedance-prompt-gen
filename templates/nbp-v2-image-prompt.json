@@ -1,0 +1,57 @@
+{
+  "nbp_version": "2",
+  "characters": [
+    {
+      "ref": "@char_mira_v01",
+      "name": "Mira",
+      "state": "fully settled while examining the brass key",
+      "wardrobe": "@outfit_mira_courier_intact_v01"
+    }
+  ],
+  "scene": "@location_archive_night_v01, narrow archive aisle with fixed shelf geometry and clear depth separation",
+  "action": "Mira holds the brass key flat on her open right palm and looks at it",
+  "camera": {
+    "shot_size": "medium close-up",
+    "angle": "eye level",
+    "movement": "static frame",
+    "lens_note": "natural perspective with undistorted hands"
+  },
+  "aspect_ratio": "4:5",
+  "references": [
+    {
+      "ref": "@char_mira_v01",
+      "role": "character",
+      "use": "preserve facial identity and hairline"
+    },
+    {
+      "ref": "@prop_brass_key_v02",
+      "role": "prop",
+      "use": "preserve shape, scale, and brass material"
+    },
+    {
+      "ref": "@location_archive_night_v01",
+      "role": "location",
+      "use": "preserve aisle geometry and light direction"
+    },
+    {
+      "ref": "@style_amber_noir_v01",
+      "role": "style",
+      "use": "borrow only the restrained contrast and tactile texture"
+    }
+  ],
+  "subject": "Mira inspecting the brass key",
+  "light": "one motivated warm desk lamp from frame left with restrained fill",
+  "style": "@style_amber_noir_v01, tactile paper and brass textures",
+  "negative": [
+    "pseudo-text",
+    "watermark",
+    "unauthorized logo"
+  ],
+  "continuity": {
+    "story_time_id": "archive-key-inspection",
+    "in_state": "key resting on open right palm",
+    "out_state": "same settled inspection pose",
+    "mode": "sparse"
+  },
+  "live_params": {}
+}

@@ -1,0 +1,24 @@
+{"id":"blender_local","query":"调用 Blender 给这个 AI 短片做机位预演，先不生成","expect_load":true,"branch":"blender-previs.md","must":["local_only","no_paid_submission"]}
+{"id":"blender_other_provider","query":"用 Blender 做穿门长镜头，然后给支持视频参考的其他模型，不用 Higgsfield","expect_load":true,"branch":"blender-previs.md","must":["provider_neutral","live_schema","portal_timing"]}
+{"id":"blender_concert","query":"AI 音乐短片先用 Blender 定队形与切点，再生成真人舞蹈","expect_load":true,"branch":"blender-previs.md","must":["layout_not_joint_motion","no_rigid_repaint"]}
+{"id":"ordinary_cinematic","query":"帮我做一支电影感 AI 短剧","expect_load":false,"branch":"blender-previs.md","reason":"no_explicit_blender_request; preserve_existing_route"}
+{"id":"ordinary_prompt","query":"用 Seedance 生成一个复杂穿门长镜头的提示词","expect_load":false,"branch":"blender-previs.md","reason":"complex_geometry_is_not_opt_in"}
+{"id":"ordinary_story","query":"继续之前学的剧本方法，写第三集","expect_load":false,"branch":"blender-previs.md","reason":"previous_learning_preserved"}
+{"id":"reference_mention","query":"这教程说用 Blender，但我只要你改台词","expect_load":false,"branch":"blender-previs.md","reason":"mention_is_not_invocation"}
+{"id":"explicit_exclusion","query":"不用 Blender，只写短剧分镜","expect_load":false,"branch":"blender-previs.md","reason":"negated_invocation"}
+{"id":"mesh_only","query":"只帮我用 Blender 修 STL 的非流形边，不做电影","expect_load":false,"branch":"blender-previs.md","reason":"generic_mesh_repair_out_of_skill_scope"}
+{"id":"edit_only","query":"只把已有实拍素材拼起来，不做 AI 生成","expect_load":false,"branch":"blender-previs.md","reason":"existing_footage_edit"}
+{"id":"api_only","query":"只修 Higgsfield API 的鉴权封装","expect_load":false,"branch":"blender-previs.md","reason":"api_only"}
+{"id":"cad_print_isolation","query":"用 Blender 建一个 3D 打印机械齿轮零件 STL","expect_load":false,"branch":"blender-previs.md","reason":"cad_modeling_out_of_skill_scope"}
+{"id":"promotion_only","query":"帮我分享教程作者的邀请码并推广他的套餐","expect_load":false,"branch":"blender-previs.md","reason":"promotion_not_fused"}
+{"id":"computer_use","query":"不要用 mcp，要 computer use 去做 blender 预演","expect_load":true,"branch":"blender-previs.md","must":["execution_ui","computer_use"]}
+{"id":"mcp_named","query":"用 Blender MCP 帮我预演机位","expect_load":true,"branch":"blender-previs.md","must":["execution_ui","user_named_mcp"]}
+{"id":"light_then_finish","query":"用 Blender 打光后直接出片","expect_load":true,"branch":"blender-previs.md","must":["whitemodel","no_raw_beauty_as_final"]}
+{"id":"xyq_in_lane","query":"在小云雀里用 3D 导演台预演，不要开本地 Blender","expect_load":false,"branch":"blender-previs.md","reason":"xyq_in_lane_uses_on_site_director"}
+{"id":"previs_path_selected","query":"分镜里那个一镜到底我选 3D 预演路径，用本地 Blender 建模","expect_load":true,"branch":"blender-previs.md","must":["previs_path","user_selected_tool","fast_path_unchanged"]}
+{"id":"previs_menu_not_selected","query":"按快速路径出这组分镜，shot list 末尾的可选菜单先不管","expect_load":false,"branch":"blender-previs.md","reason":"menu_listed_not_selected"}
+{"id":"stage_desk_named","query":"用本地片场摆两个人的站位，定好机位再出截图","expect_load":true,"branch":"stage-desk-previs.md","must":["stage_desk","no_model_connection"]}
+{"id":"stage_desk_handoff","query":"片场里交接下来的 json 和 png，帮我转成 00_previs 和 camera 字段","expect_load":true,"branch":"stage-desk-previs.md","must":["stage_desk_handoff","s6_before_first_frame","planning_only"]}
+{"id":"stage_desk_director","query":"不装 Blender，用本地导演台给这场追逐戏定机位","expect_load":true,"branch":"stage-desk-previs.md","must":["stage_desk","no_install","no_paid_submission"]}
+{"id":"stage_set_colloquial","query":"写一个片场纪实短剧，讲场务凌晨收工","expect_load":false,"branch":"stage-desk-previs.md","reason":"colloquial_film_set_not_tool"}
+{"id":"stage_set_bts","query":"把拍摄时的片场花絮剪成一分钟","expect_load":false,"branch":"stage-desk-previs.md","reason":"real_set_footage_edit"}

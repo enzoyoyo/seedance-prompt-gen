@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "project_id": "example-planned-only",
+  "shots": [
+    {
+      "shot_id": "s01",
+      "source_take": null,
+      "revision": "plan-v1",
+      "stage": "planning",
+      "state": "planned",
+      "submitted": false,
+      "provider": null,
+      "exact_model_id": null,
+      "job_id": null,
+      "requested_end_state": {"door": "open", "character": "at_threshold"},
+      "observed_end_state": null,
+      "parents": [],
+      "completed_beats": [],
+      "reserved_beats": ["enter_room"],
+      "advances_beats": ["open_door"],
+      "failure": null,
+      "changed_variables": [],
+      "next_action": "Approve the shot plan and reference roles before provider preflight."
+    },
+    {
+      "shot_id": "s02",
+      "source_take": null,
+      "revision": "plan-v1",
+      "stage": "planning",
+      "state": "planned",
+      "submitted": false,
+      "provider": null,
+      "exact_model_id": null,
+      "job_id": null,
+      "requested_end_state": {"door": "open", "character": "inside_room"},
+      "observed_end_state": null,
+      "parents": [
+        {
+          "shot_id": "s01",
+          "source_take": null,
+          "revision": "plan-v1",
+          "observed_end_state": null
+        }
+      ],
+      "completed_beats": [],
+      "reserved_beats": [],
+      "advances_beats": ["enter_room"],
+      "failure": null,
+      "changed_variables": [],
+      "next_action": "After s01 passes QC, refresh its selected take, revision and observed end-state snapshot."
+    }
+  ],
+  "takes": [],
+  "edit_list": []
+}

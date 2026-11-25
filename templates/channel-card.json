@@ -1,0 +1,14 @@
+{
+  "recipe": "<references/adapter-...md holding the zero-cost verified submit recipe>",
+  "draft_tier": {"value": "<true | false>", "verified_at": "<YYYY-MM-DD>", "source": "<--help or model describe>"},
+  "draft_upgradable": {"value": "<true | false>", "verified_at": "<YYYY-MM-DD>", "source": "<--help or schema>"},
+  "balance_query": {"value": "<true | false>", "verified_at": "<YYYY-MM-DD>", "source": "<zero-cost balance command>"},
+  "recover_by_id": {"value": "<true | false>", "verified_at": "<YYYY-MM-DD>", "source": "<query command>"},
+  "ref_transport": {"value": "<local file upload | url | asset_id>", "verified_at": "<YYYY-MM-DD>"},
+  "plan_required": {"value": "<none | Pro | unknown>", "verified_at": "<YYYY-MM-DD>", "source": "<pricing page or unknown>"},
+  "daily_limit": {"value": "<none | N | unknown>", "verified_at": "<YYYY-MM-DD>", "source": "<quota rule or unknown>"},
+  "limits": {
+    "max_duration_s": {"value": 0, "verified_at": "<YYYY-MM-DD>", "source": "<model schema duration max>"}
+  },
+  "expires_at": "<YYYY-MM-DD>"
+}

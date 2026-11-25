@@ -1,0 +1,22 @@
+{"query":"给我写一个 8 秒 Seedance 提示词：猫从沙发跳到窗台","expect_load":true,"skill":"seedance-prompt-gen","lane":"A"}
+{"query":"先锁角色和地点，再做一条五镜头电影感短片","expect_load":true,"skill":"seedance-prompt-gen","lane":"B"}
+{"query":"把这个咖啡包装做成 UGC 开箱和产品 hero 两版广告","expect_load":true,"skill":"seedance-prompt-gen","lane":"C"}
+{"query":"写一个 AI 短剧并用小云雀生成分镜视频","expect_load":true,"skill":"seedance-prompt-gen","lane":"D","adapter":"xyq-short-drama-skill"}
+{"query":"在这段实拍里只增加一扇发光传送门，机位和演员不变","expect_load":true,"skill":"seedance-prompt-gen","lane":"E"}
+{"query":"做一条 60 秒 AI 成片，含旁白、字幕、B-roll 和最终 MP4","expect_load":true,"skill":"seedance-prompt-gen","lane":"F"}
+{"query":"用 Lovart 的 Seedance 2.0 做这个已批准 Prompt","expect_load":true,"skill":"seedance-prompt-gen","adapter":"lovart-api"}
+{"query":"用 Atlas API 直连 Seedance，先查 schema 再生成","expect_load":true,"skill":"seedance-prompt-gen","adapter":"atlas-cloud"}
+{"query":"用 Higgsfield Marketing Studio 做一条 UGC 产品广告","expect_load":true,"skill":"seedance-prompt-gen","adapter":"higgsfield-generate"}
+{"query":"把 video.mp4 的 1:21 到 1:35 剪掉并压成 1080p","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"precision-video-editing"}
+{"query":"给现有采访加动态标题和数据卡","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"videoedit"}
+{"query":"做一个纯程序化数字增长 MG 动画","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"hyperframes"}
+{"query":"分析 YouTube 视频 SEO，不做视频","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"video-suite"}
+{"query":"帮我把这段会议录音转写成逐字稿纪要","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"audio-transcription"}
+{"query":"让 Codex 做一条方案介绍视频，用网页 PPT、HyperFrames、旁白、AI B-roll、字幕并交付最终 MP4","expect_load":true,"skill":"seedance-prompt-gen","lane":"F"}
+{"query":"基于这份内容做一个横向翻页网页 PPT，不需要视频","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"guizang-ppt-skill"}
+{"query":"把这篇文章转成多角色配音 JSON，不做视频","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"dubbing-skills"}
+{"query":"只用 video-shotcraft 设计一个镜头，不要旁白和完整成片","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"video-shotcraft"}
+{"query":"用 video-shotcraft 设计产品镜头，再配旁白、字幕、B-roll 并交付最终 MP4","expect_load":true,"skill":"seedance-prompt-gen","lane":"F","adapter":"video-shotcraft"}
+{"query":"搭一个 faceless YouTube 科普频道，用 Higgsfield 和 Seedance 批量出片和缩略图","expect_load":true,"skill":"seedance-prompt-gen","lane":"F"}
+{"query":"把这篇文章做成五分钟无人出镜 YouTube 解说视频，含标题、缩略图和最终成片","expect_load":true,"skill":"seedance-prompt-gen","lane":"F"}
+{"query":"YouTube AI 内容需要披露吗？只问现行政策，不制作视频","expect_load":false,"skill":"seedance-prompt-gen","neighbor":"current-source-research"}
